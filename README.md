@@ -2,7 +2,7 @@
 ## The game
 "Harvestgame" is the working title for now, which reflects the overall feeling it's trying to capture: the time between late September and late December when things in the northern hemisphere become cold and mysterious outside, while warm and cozy inside.
 
-Use the arrow keys to move, jump, collect treats, and avoid enemies.
+Use the arrow keys to move, jump, collect treats, and avoid enemies while exploring the quaint town of Foxglove.
 
 This game is written in JavaScript and not yet tested for mobile.
 
