@@ -4,7 +4,7 @@
 
 Use the arrow keys to move, jump, collect treats, and avoid enemies while exploring the quaint town of Foxglove.
 
-This game is written in JavaScript and not yet tested for mobile.
+This game is written using HTML, CSS, and JavaScript (not yet tested for mobile).
 
 ## Files
 - witchgame.html
