@@ -22,28 +22,30 @@ canvas.height = 500;
 
 const usedbg = [];
 
-const playersprites = "character_witchresize.png";
-image.src = playersprites;
+const playerspritesheet = "spritesheet_bluewitch.png";
+image.src = playerspritesheet;
 
-/*this may need to be updated */
+
 let bgImg = new Image();
-bgImg.width = window.innerWidth;
+bgImg.width = window.innerWidth / 3;
 bgImg.src = bg[count];
 
 count+=1;
 
+/*throw used backgrounds into another array */
 usedbg.push(bgImg.src);
 
+/*create game objects */
 function game_object(x,y, currentFrame, rows, columns,imgWidth, imgHeight,srcX,
     srcY, is_person, is_interact){
    
    this.x = x;
      this.y = y;
-     this.currentFrame = currentFrame;
-     this.rows = rows;
-     this.columns = columns;
-     this.imgWidth = imgWidth;
-     this.imgHeight = imgHeight;
+     this.currentFrame = 0;
+     this.rows = 3;
+     this.columns = 1;
+     this.imgWidth = 500;
+     this.imgHeight = 500;
      this.srcX = srcX;
      this.srcY = srcY;
      const rowSize = this. imgWidth/this.columns;
