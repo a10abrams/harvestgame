@@ -5,6 +5,7 @@ let context = canvas.getContext('2d');
 /* globals */
 const currentBg = 0;
 const bg = ['wgbackground_01.png','wgbackground_02.png','wgbackground_03.png','wgbackground_04.png','wgbackground_05.png','wgbackground_07.png'];
+        /*this array holds the background imgs ^ */
 let count = 0;
 let image = new Image();
 
@@ -17,6 +18,7 @@ window.addEventListener("keyup",function(e){
     console.log(window.key);
 });
 
+/*this may need to be updated */
 canvas.width = 900;
 canvas.height = 500;
 
@@ -25,21 +27,32 @@ const usedbg = [];
 const playerspritesheet = "spritesheet_bluewitch.png";
 image.src = playerspritesheet;
 
-
+/*this may need to be updated */
 let bgImg = new Image();
-bgImg.width = window.innerWidth / 3;
+bgImg.width = window.innerWidth / 3 ;
 bgImg.src = bg[count];
 
 count+=1;
 
-/*throw used backgrounds into another array */
+/* throw used background images into another array */
 usedbg.push(bgImg.src);
 
-/*create game objects */
-function game_object(x,y, currentFrame, rows, columns,imgWidth, imgHeight,srcX,
+var rows = 3;
+var columns = 1;
+var imgheight = 500;
+var imgwidth = 500;
+var sizerow = 50;
+var sizewidth = 59;
+
+/*this variable is a work in progress 
+var currentFrame = (sizerow) * (sizewidth);
+*/
+
+/* create game objects */
+function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
     srcY, is_person, is_interact){
    
-   this.x = x;
+     this.x = x;
      this.y = y;
      this.currentFrame = 0;
      this.rows = 3;
@@ -48,7 +61,7 @@ function game_object(x,y, currentFrame, rows, columns,imgWidth, imgHeight,srcX,
      this.imgHeight = 500;
      this.srcX = srcX;
      this.srcY = srcY;
-     const rowSize = this. imgWidth/this.columns;
+     const rowSize = this.imgWidth/this.columns;
      const colSize = this.imgHeight/this.rows;
      this.srcY = 1*colSize;
      this.draw = function (){
@@ -71,7 +84,10 @@ function game_object(x,y, currentFrame, rows, columns,imgWidth, imgHeight,srcX,
          this.x = this.x-20;
          }
       this.srcX = this.currentFrame * rowSize;
-      if (this.x >= bgImg.width - 200 && window.key == 32) {
+    }
+
+/* background looping function */
+if (this.x >= bgImg.width - 200 && window.key == 32) {
           switch (count) {
             case 1:
               bgImg.src = bg[count];
@@ -89,9 +105,8 @@ function game_object(x,y, currentFrame, rows, columns,imgWidth, imgHeight,srcX,
             break;
           }
              }
-     }
- 
  }
+
  var main_player = new game_object(500, 230, 0, 2, 4, 800, 600, true, true);
  
  setInterval(function(){
