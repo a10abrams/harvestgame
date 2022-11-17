@@ -71,6 +71,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
        context.clearRect(canvas.width,canvas.height,0,0);
   
      }
+   /* move player left */
    this.update = function(){
       if(window.key == 39 && this.x <= bgImg.width+365){
          this.srcY = 1*colSize;
@@ -78,6 +79,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
          console.log(x,bgImg.width+500);
          this.x = this.x+10;
          }
+   /* move player right--problematic */
       if(window.key == 37 && this.x > 0 ){
          this.currentFrame =  ++this.currentFrame % this.columns;
          this.srcY = 0*colSize;
