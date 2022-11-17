@@ -37,12 +37,12 @@ count+=1;
 /* throw used background images into another array */
 usedbg.push(bgImg.src);
 
-var rows = 3;
-var columns = 1;
-var imgheight = 500;
-var imgwidth = 500;
-var sizerow = 50;
-var sizewidth = 59;
+var rows = 1;
+var columns = 3;
+var imgheight = 59;
+var imgwidth = 148;
+var sizerow = 57;
+var sizewidth = 48;
 
 /*this variable is a work in progress 
 var currentFrame = (sizerow) * (sizewidth);
@@ -55,10 +55,10 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
      this.x = x;
      this.y = y;
      this.currentFrame = 0;
-     this.rows = 3;
-     this.columns = 1;
-     this.imgWidth = 500;
-     this.imgHeight = 500;
+     this.rows = 1;
+     this.columns = 3;
+     this.imgWidth = 148;
+     this.imgHeight = 59;
      this.srcX = srcX;
      this.srcY = srcY;
      const rowSize = this.imgWidth/this.columns;
@@ -76,18 +76,18 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
          this.srcY = 1*colSize;
          this.currentFrame = ++this.currentFrame % this.columns;
          console.log(x,bgImg.width+500);
-         this.x = this.x+20;
+         this.x = this.x+10;
          }
       if(window.key == 37 && this.x > 0 ){
          this.currentFrame =  ++this.currentFrame % this.columns;
          this.srcY = 0*colSize;
-         this.x = this.x-20;
+         this.x = this.x-10;
          }
       this.srcX = this.currentFrame * rowSize;
     }
 
 /* background looping function */
-if (this.x >= bgImg.width - 200 && window.key == 32) {
+if (this.x >= bgImg.width - 200 && window.key == 37) {
           switch (count) {
             case 1:
               bgImg.src = bg[count];
