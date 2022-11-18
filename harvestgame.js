@@ -52,8 +52,8 @@ var currentFrame = (sizerow) * (sizewidth);
 function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
     srcY, is_person, is_interact){
    
-     this.x = x;
-     this.y = y;
+     this.x = 0;
+     this.y = 400;
      this.currentFrame = 0;
      this.rows = 1;
      this.columns = 3;
