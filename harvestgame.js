@@ -109,6 +109,12 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
           this.currentFrame = ++this.currentFrame & this.columns;
           this.srcY = 0*colSize;
           this.y = this.y-40;
+        }
+  /*move player down--will probably be deleted later? */
+      if(window.key == 40 && this. y > this.srcY) {
+          this.currentFrame = ++this.currentFrame % this.columns;
+          this.srcY = 0*colSize;
+          this.y = thia.y+40;
     }
 
 /* background looping function */
