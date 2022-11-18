@@ -64,28 +64,51 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
      const rowSize = this.imgWidth/this.columns;
      const colSize = this.imgHeight/this.rows;
      this.srcY = 1*colSize;
+     /* an attempt at adding gravity */
+     this.speedX = 0;
+     this.speedY = 0;
+     this.gravity = 0.05;
+     this.gravitySpeed = 1;
+     
      this.draw = function (){
-       
        context.drawImage(bgImg,0,0);
        context.drawImage(image,this.srcX,this.srcY,rowSize, colSize,this.x,this.y,rowSize, colSize);
        context.clearRect(canvas.width,canvas.height,0,0);
-  
-     }
-   /* move player left */
+     
+     this.newPos = function(){
+      this.gravitySpeed += this.gravity;
+      this.x += this.speedX;
+      this.y += this.speedY + this.gravitySpeed;
+      this.bottom();
+    }
+    this.bottom = function() {
+      var rockbottom = canvas.height - this.height;
+      if (this.y > rockbottom) {
+        this. y = rockbottom;
+      }
+    }
+     }  
+   
    this.update = function(){
-      if(window.key == 39 && this.x <= bgImg.width+365){
+      /* move player left */
+      if(window.key == 39 && this.x <= bgImg.width){
          this.srcY = 1*colSize;
          this.currentFrame = ++this.currentFrame % this.columns;
          console.log(x,bgImg.width+500);
-         this.x = this.x+10;
+         this.x = this.x+20;
          }
    /* move player right--problematic */
       if(window.key == 37 && this.x > 0 ){
          this.currentFrame =  ++this.currentFrame % this.columns;
          this.srcY = 0*colSize;
-         this.x = this.x-10;
+         this.x = this.x-20;
          }
       this.srcX = this.currentFrame * rowSize;
+  /* jump prototype */
+      if(window.key == 38 && this.y > this.srcY && this.y < canvas.height) {
+          this.currentFrame = ++this.currentFrame & this.columns;
+          this.srcY = 0*colSize;
+          this.y = this.y-40;
     }
 
 /* background looping function */
