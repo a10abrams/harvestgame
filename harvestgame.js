@@ -91,19 +91,19 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
    
    this.update = function(){
       /* move player left */
-      if(window.key == 39 && this.x <= bgImg.width){
-         this.srcY = 1*colSize;
-         this.currentFrame = ++this.currentFrame % this.columns;
-         console.log(x,bgImg.width+500);
-         this.x = this.x+20;
-         }
-   /* move player right--problematic */
-      if(window.key == 37 && this.x > 0 ){
+      if(window.key == 37 && this.x > 0{
          this.currentFrame =  ++this.currentFrame % this.columns;
          this.srcY = 0*colSize;
          this.x = this.x-20;
          }
-      this.srcX = this.currentFrame * rowSize;
+        this.srcX = this.currentFrame * rowSize;
+      /*move player right--FIXED*/
+      if(window.key == 39 && this.x <= bgImg.width){
+         this.srcY = 0*colSize;
+         this.currentFrame = ++this.currentFrame % this.columns;
+         console.log(x,bgImg.width+500);
+         this.x = this.x+20;
+         }
   /* jump prototype */
       if(window.key == 38 && this.y > this.srcY && this.y < canvas.height) {
           this.currentFrame = ++this.currentFrame & this.columns;
