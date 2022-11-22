@@ -29,7 +29,7 @@ image.src = playerspritesheet;
 
 /*this may need to be updated */
 let bgImg = new Image();
-bgImg.width = window.innerWidth / 3 ;
+bgImg.width = window.innerWidth;
 bgImg.src = bg[count];
 
 count+=1;
