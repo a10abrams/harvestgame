@@ -31,7 +31,6 @@ image.src = playerspritesheet;
 let bgImg = new Image();
 bgImg.width = window.innerWidth;
 bgImg.src = bg[count];
-
 count+=1;
 
 /* throw used background images into another array */
@@ -98,7 +97,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
          }
         this.srcX = this.currentFrame * rowSize;
       /*move player right--FIXED*/
-      if(window.key == 39 && this.x <= bgImg.width){
+      if(window.key == 39 && this.x <= 800){
          this.srcY = 0*colSize;
          this.currentFrame = ++this.currentFrame % this.columns;
          console.log(x,bgImg.width+500);
@@ -118,7 +117,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
     }
 
 /* background looping function */
-if (this.x >= bgImg.width - 200 && window.key == 37) {
+if (window.key == 37 && this.x > 0) {
           switch (count) {
             case 1:
               bgImg.src = bg[count];
