@@ -93,7 +93,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
       if(window.key == 37 && this.x > 0{
          this.currentFrame =  ++this.currentFrame % this.columns;
          this.srcY = 0*colSize;
-         this.x = this.x-20;
+         this.x = this.x-40;
          }
         this.srcX = this.currentFrame * rowSize;
       /*move player right--FIXED*/
@@ -101,7 +101,7 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
          this.srcY = 0*colSize;
          this.currentFrame = ++this.currentFrame % this.columns;
          console.log(x,bgImg.width+500);
-         this.x = this.x+20;
+         this.x = this.x+40;
          }
   /* jump prototype */
       if(window.key == 38 && this.y > this.srcY && this.y < canvas.height) {
@@ -117,15 +117,15 @@ function game_object(x,y, currentFrame, rows, columns, imgwidth, imgheight,srcX,
     }
 
 /* background looping function */
-if (window.key == 37 && this.x > 0) {
+if (window.key == 39 && this.x == 800) {
           switch (count) {
             case 1:
-              bgImg.src = bg[count];
+              bgImg.src = bg[1];
               count+=1;
               this.x=50;
               break;
            case 2:
-             bgImg.src = bg[count];
+             bgImg.src = bg[2];
              count+=1;
              console.log(table);
              this.x=0;
