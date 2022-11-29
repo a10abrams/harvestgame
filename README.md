@@ -18,3 +18,4 @@ All of these bad boys are accessible!
 2. More player sprites (I'm thinking animals/professional bakers/a person on a bicycle/etc.)
 3. A save button for obvious reasons
 4. Ability to fight (cast spells/punch to death)
+5. A loading screen!
